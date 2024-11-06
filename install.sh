@@ -96,7 +96,7 @@ install_fws() {
   fi
 
   # move to /usr/local/bin
-  chmod +x /tmp/fcd_install/fcd
+  chmod +x /tmp/fcd_install/fws
   sudo cp /tmp/fws_install/fws /usr/local/bin
   if [ $? -ne 0 ]; then
     echo "$ERROR failed to copy fws to /usr/local/bin $CLEAR"
