@@ -55,3 +55,5 @@ install_fws() {
   echo "cleaned up /tmp/fws_install"
 
 }
+
+install_fws
