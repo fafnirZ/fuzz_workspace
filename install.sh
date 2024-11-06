@@ -47,6 +47,10 @@ install_fzf_dep() {
   # untar and cp to usr/bin
   tar -xvf fzf.tar.gz
   sudo cp fzf /usr/local/bin/fzf
+  if [ $? -ne 0 ]; then
+    echo "$ERROR failed to copy fzf to /usr/local/bin $CLEAR"
+    exit 1
+  fi 
   
   # cleanup
   cd /tmp/fzf_install
@@ -92,7 +96,12 @@ install_fws() {
   fi
 
   # move to /usr/local/bin
+  chmod +x /tmp/fcd_install/fcd
   sudo cp /tmp/fws_install/fws /usr/local/bin
+  if [ $? -ne 0 ]; then
+    echo "$ERROR failed to copy fws to /usr/local/bin $CLEAR"
+    exit 1
+  fi 
 
   # cleanup
   cd /tmp/fws_install
