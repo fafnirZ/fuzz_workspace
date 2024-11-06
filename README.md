@@ -2,7 +2,7 @@
 
 ## Install
 ```
-curl -o- https://raw.githubusercontent.com/fafnirZ/fuzz_workspace/refs/heads/main/install.sh | sh
+curl -o- https://raw.githubusercontent.com/fafnirZ/fuzz_workspace/refs/heads/main/install.sh | bash
 ```
 
 ## Pre-requisites

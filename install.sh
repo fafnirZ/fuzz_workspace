@@ -92,7 +92,7 @@ install_fws() {
   fi
 
   # move to /usr/local/bin
-  sudo cp fws /usr/local/bin
+  sudo cp /tmp/fws_install/fws /usr/local/bin
 
   # cleanup
   cd /tmp/fws_install
