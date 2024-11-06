@@ -24,6 +24,51 @@
 # THE SOFTWARE.
 ##
 
+
+FAIL='\033[91m'
+CLEAR='\033[0m'
+GREEN='\033[92m'
+WARNING='\033[0;33m'
+
+install_fzf_dep() {
+  if ! [ -d /tmp/fzf_install ]; then
+    mkdir /tmp/fzf_install
+  fi
+  wget https://github.com/junegunn/fzf/releases/download/v0.56.0/fzf-0.56.0-linux_amd64.tar.gz \
+    -O /tmp/fzf_install/fzf.tar.gz \
+    -q
+  if [ $? -ne 0 ]; then
+    echo "$ERROR failed to install fzf $CLEAR"
+    exit 1
+  fi 
+
+  cd /tmp/fzf_install
+
+  # untar and cp to usr/bin
+  tar -xvf fzf.tar.gz
+  sudo cp fzf /usr/local/bin/fzf
+  
+  # cleanup
+  cd /tmp/fzf_install
+  rm -r /tmp/fzf_install
+  echo "cleaned up /tmp/fzf_install"
+
+  # done
+  echo -e "$GREEN DONE $CLEAR"
+}
+
+check_fzf_dep() {
+  echo "Checking for existance of fzf in /usr/local/bin/"
+  if ! [ -f "/usr/local/bin/fzf" ]; then
+    echo -e "$WARNING fzf not found, installing... $CLEAR"
+    # installing dep
+    install_fzf_dep
+    return
+  fi
+
+  echo -e "$GREEN found in /usr/local/bin/fzf $CLEAR"
+}
+
 install_fws() {
   if ! [ -d /tmp/fws_install ]; then
     mkdir /tmp/fws_install
@@ -56,4 +101,5 @@ install_fws() {
 
 }
 
+check_fzf_dep
 install_fws
