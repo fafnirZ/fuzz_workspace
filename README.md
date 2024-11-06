@@ -1,6 +1,6 @@
 # fuzz_workspace
 
-## Install
+## Installing prereqs
 installing fuzz_cd which will also install fzf which is required here
 ```
 curl https://raw.githubusercontent.com/fafnirZ/fuzz_cd/refs/heads/main/install.sh | sh
@@ -9,3 +9,8 @@ curl https://raw.githubusercontent.com/fafnirZ/fuzz_cd/refs/heads/main/install.s
 ## Prereqs
 `fzf`, if you want to install it manually yourself without also installing `fcd` refer to:
 https://github.com/junegunn/fzf
+
+## Install
+after installing prereqs
+TODO, incorporate auto download fzf prereqs
+`./install.sh`
