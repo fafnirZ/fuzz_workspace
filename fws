@@ -40,8 +40,9 @@ f() {
     arg+=$1
     shift
   done
-  workspace_path=$(find * -type "f" |
-                    fzf --query "$arg.code-workspace") || return
+  workspace_path=$(fzf --walker=file \
+                        --walker-skip=.git,node_modules,.venv \
+                        -q $arg.code-workspace) || return
 
   # opens up vscode in that workspace
   code $workspace_path
